@@ -1,0 +1,10 @@
+<apex:page controller="ProjectReportController" renderAs="pdf">
+    <apex:pageBlock title="Project Report">
+        <apex:pageBlockTable value="{!projects}" var="p">
+            <apex:column value="{!p.Name}"/>
+            <apex:column value="{!p.Account__r.Name}" headerValue="Account"/>
+            <apex:column value="{!p.Status__c}"/>
+            <apex:column value="{!p.Budget__c}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>
