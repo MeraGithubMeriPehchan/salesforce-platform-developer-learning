@@ -1,0 +1,20 @@
+<template>
+    <lightning-card title="Recent Accounts" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <template lwc:if={accounts.data}>
+                <lightning-datatable
+                    key-field="Id"
+                    data={accounts.data}
+                    columns={columns}
+                    hide-checkbox-column>
+                </lightning-datatable>
+            </template>
+            <template lwc:elseif={accounts.error}>
+                <p>Could not load accounts.</p>
+            </template>
+            <template lwc:else>
+                <p>Loading...</p>
+            </template>
+        </div>
+    </lightning-card>
+</template>

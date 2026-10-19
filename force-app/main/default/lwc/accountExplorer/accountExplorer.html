@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="Account Explorer" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <lightning-input
+                label="Account name"
+                value={searchTerm}
+                onchange={handleChange}>
+            </lightning-input>
+            <lightning-button
+                class="slds-m-top_small"
+                variant="brand"
+                label="Search"
+                onclick={handleSearch}>
+            </lightning-button>
+
+            <template for:each={accounts} for:item="acc">
+                <c-account-tile
+                    key={acc.Id}
+                    account={acc}
+                    onaccountselect={handleAccountSelect}>
+                </c-account-tile>
+            </template>
+
+            <template lwc:if={selectedName}>
+                <p class="slds-m-top_medium">
+                    <strong>Selected:</strong> {selectedName}
+                </p>
+            </template>
+        </div>
+    </lightning-card>
+</template>
